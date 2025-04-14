@@ -4,7 +4,6 @@
 Experimental repository 
 
 <!--Блок информации о репозитории в бейджах-->
-![Static Badge](https://img.shields.io/badge/AdykGC-Repo-Experimental-Repo-Experimental)
 ![GitHub top language](https://img.shields.io/github/languages/top/AdykGC/Repo-Experimental)
 ![GitHub](https://img.shields.io/github/license/AdykGC/Repo-Experimental)
 ![GitHub Repo stars](https://img.shields.io/github/stars/AdykGC/Repo-Experimental)
@@ -46,4 +45,5 @@ Experimental repository
 | test	   | Добавление тестов                                               |
 
 
-<!--  git commit -m "feat | Readme"   -->
+<!--  git commit -m "feat | Readme.md"   -->
+<!--  git commit -m "fix  | Readme.md"   -->
