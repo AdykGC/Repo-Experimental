@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Викторина</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .question { margin-bottom: 20px; }
+        .answers { margin-left: 20px; }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Викторина</h1>
+    <form method="post" action="{% url 'submit_quiz' %}">
+        {% csrf_token %}
+        {% for question in questions %}
+            <div class="question">
+                <p><strong>{{ question.text }}</strong></p>
+                <div class="answers">
+                    {% for key, value in question.answers.items %}
+                        <label>
+                            <input type="radio" name="{{ question.id }}" value="{{ key }}"> {{ key }}: {{ value }}
+                        </label><br>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+        <input type="submit" value="Отправить ответы">
+    </form>
+</body>
+</html>
