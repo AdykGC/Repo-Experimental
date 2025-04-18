@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Викторина</title>
+    <link rel="stylesheet" href="{% static 'quiz/style.css' %}">
+</head>
+<body>
+    <h1>Викторина</h1>
+    <form method="post" action="{% url 'submit_quiz' %}">
+        {% csrf_token %}
+        {% for question in questions %}
+            <div class="question">
+                <p><strong>{{ question.text }}</strong></p>
+                <div class="answers">
+                    {% for key, value in question.answers.items %}
+                        <label>
+                            <input type="radio" name="{{ question.id }}" value="{{ key }}"> {{ key }}: {{ value }}
+                        </label><br>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+        <input type="submit" value="Отправить ответы">
+    </form>
+</body>
+</html>
